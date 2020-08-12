@@ -1,7 +1,7 @@
 
-def main() : 
-    string = "SyaRaihan Raihan Heggi" 
-    substring = "Raihan"
+def main() :
+    string = "abcdcdcdcbcdc" 
+    substring = "cdc"
     iteration = 0
     new_loops = 0
     a = ""

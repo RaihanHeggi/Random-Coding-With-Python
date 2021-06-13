@@ -1,5 +1,6 @@
 import random
 import time
+import os
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
@@ -52,21 +53,21 @@ def update_fig(listSorting, rects, iteration, start, text):
 
 
 def main():
-    # Build and randomly shuffle list of integers.
-    listSorting = [x + 1 for x in range(50)]
-    random.seed(time.time())
-    random.shuffle(listSorting)
-
-    # Choice to Ascending or Descending Sort
-    choice = input("Ascending (1) or Descending (2) : ")
-    if choice == "1":
-        generator = selectionSortAscending(listSorting)
-    elif choice == "2":
-        generator = selectionSortDescending(listSorting)
-    else:
-        raise Exception
-
     try:
+        # Build and randomly shuffle list of integers.
+        listSorting = [x + 1 for x in range(50)]
+        random.seed(time.time())
+        random.shuffle(listSorting)
+
+        # Choice to Ascending or Descending Sort
+        choice = input("Ascending (1) or Descending (2) : ")
+        if choice == "1":
+            generator = selectionSortAscending(listSorting)
+        elif choice == "2":
+            generator = selectionSortDescending(listSorting)
+        else:
+            raise IndexError
+
         start = time.time()
 
         # Initialize figure and axis.
@@ -109,8 +110,9 @@ def main():
             repeat=False,
         )
         plt.show()
-    except Exception as e:
-        print(e)
+    except IndexError as e:
+        os.system("cls")
+        print("Input Salah")
 
 
 if __name__ == "__main__":
